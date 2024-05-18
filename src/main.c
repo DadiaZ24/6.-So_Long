@@ -6,7 +6,7 @@
 /*   By: ddias-fe <ddias-fe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 16:01:29 by ddias-fe          #+#    #+#             */
-/*   Updated: 2024/05/18 21:34:05 by ddias-fe         ###   ########.fr       */
+/*   Updated: 2024/05/18 21:35:24 by ddias-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int main(void)
     while (i--)
     {
         j += 10;
-        mlx_clear_window(mlx, mlx_window);
+        //mlx_clear_window(mlx, mlx_window);
         mlx_put_image_to_window(mlx, mlx_window, img.img, j, 100);
         usleep(10000);
     }
