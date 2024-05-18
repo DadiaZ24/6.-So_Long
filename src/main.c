@@ -6,7 +6,7 @@
 /*   By: ddias-fe <ddias-fe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 16:01:29 by ddias-fe          #+#    #+#             */
-/*   Updated: 2024/05/18 22:08:30 by ddias-fe         ###   ########.fr       */
+/*   Updated: 2024/05/18 22:09:39 by ddias-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int main(void)
     int     j = -375;
     int     k = 3;
     int     baixo = 30;
-    int     bney = 42;
+    int     bney = 44;
     
     img.path = "img/fog.xpm";
     img2.path = "img/fog2.xpm";
