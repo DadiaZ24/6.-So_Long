@@ -6,7 +6,7 @@
 /*   By: ddias-fe <ddias-fe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 16:01:29 by ddias-fe          #+#    #+#             */
-/*   Updated: 2024/05/18 21:30:54 by ddias-fe         ###   ########.fr       */
+/*   Updated: 2024/05/18 21:34:05 by ddias-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int main(void)
     void    *mlx_window;
     t_data  img;
     int     i = 1000;
-    int     j = -100;
+    int     j = 10;
     
     img.path = "img/fog2.xpm";
     mlx = mlx_init();
