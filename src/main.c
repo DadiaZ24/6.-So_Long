@@ -6,7 +6,7 @@
 /*   By: ddias-fe <ddias-fe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 16:01:29 by ddias-fe          #+#    #+#             */
-/*   Updated: 2024/05/18 21:48:34 by ddias-fe         ###   ########.fr       */
+/*   Updated: 2024/05/18 21:49:27 by ddias-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int main(void)
     void    *mlx_window;
     t_data  img;
     t_data  img2;
-    int     i = 100;
+    int     i = 110;
     int     j = -100;
     int     k = 3;
     int     baixo = 30;
