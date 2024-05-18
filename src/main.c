@@ -6,7 +6,7 @@
 /*   By: ddias-fe <ddias-fe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 16:01:29 by ddias-fe          #+#    #+#             */
-/*   Updated: 2024/05/18 21:57:21 by ddias-fe         ###   ########.fr       */
+/*   Updated: 2024/05/18 21:59:42 by ddias-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int main(void)
         }
         baixo += 70;
     }
-    mlx_clear_window(mlx, mlx_window);
+    //mlx_clear_window(mlx, mlx_window);
     mlx_put_image_to_window(mlx, mlx_window, barney.img, 0, 0);
     mlx_loop(mlx);
     return (0);
