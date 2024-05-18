@@ -6,7 +6,7 @@
 /*   By: ddias-fe <ddias-fe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 16:01:29 by ddias-fe          #+#    #+#             */
-/*   Updated: 2024/05/18 21:46:21 by ddias-fe         ###   ########.fr       */
+/*   Updated: 2024/05/18 21:47:27 by ddias-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int main(void)
     t_data  img;
     t_data  img2;
     int     i = 100;
-    int     j = -10;
+    int     j = -100;
     int     k = 3;
     int     baixo = 30;
     
@@ -35,7 +35,7 @@ int main(void)
         while (i--)
         {
             j += 10;
-            //mlx_clear_window(mlx, mlx_window);
+            mlx_clear_window(mlx, mlx_window);
             mlx_put_image_to_window(mlx, mlx_window, img.img, j, baixo);
             usleep(10000);
         }
@@ -43,7 +43,7 @@ int main(void)
         while (i++ < 110)
         {
             j -= 10;
-            //mlx_clear_window(mlx, mlx_window);
+            mlx_clear_window(mlx, mlx_window);
             mlx_put_image_to_window(mlx, mlx_window, img2.img, j, baixo);
             usleep(10000);
         }
