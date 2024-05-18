@@ -6,7 +6,7 @@
 /*   By: ddias-fe <ddias-fe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 16:01:29 by ddias-fe          #+#    #+#             */
-/*   Updated: 2024/05/18 21:59:42 by ddias-fe         ###   ########.fr       */
+/*   Updated: 2024/05/18 22:00:47 by ddias-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int main(void)
     
     img.path = "img/fog.xpm";
     img2.path = "img/fog2.xpm";
+    barney.path = "img/barney.xpm";
     mlx = mlx_init();
     img.img = mlx_xpm_file_to_image(mlx, img.path, &img.width, &img.height);
     img2.img = mlx_xpm_file_to_image(mlx, img2.path, &img2.width, &img2.height);
@@ -51,7 +52,7 @@ int main(void)
         }
         baixo += 70;
     }
-    //mlx_clear_window(mlx, mlx_window);
+    mlx_clear_window(mlx, mlx_window);
     mlx_put_image_to_window(mlx, mlx_window, barney.img, 0, 0);
     mlx_loop(mlx);
     return (0);
