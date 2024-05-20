@@ -6,7 +6,7 @@
 /*   By: ddias-fe <ddias-fe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 16:01:29 by ddias-fe          #+#    #+#             */
-/*   Updated: 2024/05/20 21:13:24 by ddias-fe         ###   ########.fr       */
+/*   Updated: 2024/05/20 21:20:55 by ddias-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,32 +125,20 @@ int key_handler(int key, t_event *event)
 int main(void)
 {
     t_event event;
-    //t_data  img;
-/*     t_data  img2;
-    t_data  barney; */
-    
-    //int     i = 150;
-    //int     k = 3;
-    //int     bney = 44;
     
     event.x = 100;
     event.y = 30;
-
     event.fogr.path = "img/fogright.xpm";
     event.fogu.path = "img/fogup.xpm";
     event.fogd.path = "img/fogdown.xpm";
     event.fogl.path = "img/fogleft.xpm";
     event.blast.path = "img/blast.xpm";
-/*     img2.path = "img/fog2.xpm";
-    barney.path = "img/barney.xpm"; */
     event.mlx = mlx_init();
     event.fogr.img = mlx_xpm_file_to_image(event.mlx, event.fogr.path, &event.fogr.width, &event.fogr.height);
     event.fogu.img = mlx_xpm_file_to_image(event.mlx, event.fogu.path, &event.fogu.width, &event.fogu.height);
     event.fogd.img = mlx_xpm_file_to_image(event.mlx, event.fogd.path, &event.fogd.width, &event.fogd.height);
     event.fogl.img = mlx_xpm_file_to_image(event.mlx, event.fogl.path, &event.fogl.width, &event.fogl.height);
     event.blast.img = mlx_xpm_file_to_image(event.mlx, event.blast.path, &event.blast.width, &event.blast.height);
-/*     img2.img = mlx_xpm_file_to_image(event.mlx, img2.path, &img2.width, &img2.height);
-    barney.img = mlx_xpm_file_to_image(event.mlx, barney.path, &barney.width, &barney.height); */
     event.window = mlx_new_window(event.mlx, 1000, 500, "LINDOOOOOOO!!!!");
     mlx_put_image_to_window(event.mlx, event.window, event.fogr.img, event.x, event.y);
     mlx_key_hook(event.window, key_handler, &event);
