@@ -19,7 +19,11 @@ NAME = so_long
 NAME_BNS = so_long_bonus
 
 SRC =	src/main.c \
-		src/img.c \
+		src/key_utils.c \
+		src/blast/blast_active_utils.c \
+		src/blast/blast_inactive_utils.c \
+		src/movement/key_press_utils.c \
+		src/movement/movement.c \
 			
 OBJ = $(SRC:.c=.o)
 

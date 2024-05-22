@@ -17,6 +17,7 @@ static size_t	checksplits(char const *s, char c)
 	size_t	i;
 	size_t	j;
 	size_t	count;
+
 	i = 0;
 	j = 0;
 	count = 0;
@@ -33,19 +34,23 @@ static size_t	checksplits(char const *s, char c)
 	}
 	return (count);
 }
+
 static int	checksize(char const *s, char c)
 {
 	int	i;
+
 	i = 0;
 	while (s[i] != c && s[i])
 		i++;
 	return (i);
 }
+
 static char	*allocstr(char const *s, char c)
 {
 	size_t	i;
 	size_t	size;
 	char	*str;
+
 	i = 0;
 	size = checksize(s, c);
 	str = (char *)malloc(sizeof(char) * (size + 1));
@@ -59,6 +64,7 @@ static char	*allocstr(char const *s, char c)
 	str[i] = '\0';
 	return (str);
 }
+
 char	**ft_split(char const *s, char c)
 {
 	size_t	i;
