@@ -6,7 +6,7 @@
 /*   By: ddias-fe <ddias-fe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 17:35:07 by ddias-fe          #+#    #+#             */
-/*   Updated: 2024/05/22 20:58:08 by ddias-fe         ###   ########.fr       */
+/*   Updated: 2024/05/24 11:56:24 by ddias-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	trigger_move_down(t_event *event)
 {
-	event->y += 3;
+	event->y += 1;
 	event->display = 1;
 	mlx_destroy_image(event->mlx, event->player_down.img);
 	event->player_down.img = mlx_xpm_file_to_image(event->mlx,
@@ -32,7 +32,7 @@ int	trigger_move_down(t_event *event)
 int	trigger_move_up(t_event *event)
 {
 	event->display = 2;
-	event->y -= 3;
+	event->y -= 1;
 	mlx_destroy_image(event->mlx, event->player_up.img);
 	event->player_up.img = mlx_xpm_file_to_image(event->mlx,
 			event->player_up.path, &event->player_up.width,
@@ -49,7 +49,7 @@ int	trigger_move_up(t_event *event)
 int	trigger_move_right(t_event *event)
 {
 	event->display = 3;
-	event->x += 3;
+	event->x += 1;
 	mlx_destroy_image(event->mlx, event->player_right.img);
 	event->player_right.img = mlx_xpm_file_to_image(event->mlx,
 			event->player_right.path, &event->player_right.width,
@@ -66,7 +66,7 @@ int	trigger_move_right(t_event *event)
 int	trigger_move_left(t_event *event)
 {
 	event->display = 4;
-	event->x -= 3;
+	event->x -= 1;
 	mlx_destroy_image(event->mlx, event->player_left.img);
 	event->player_left.img = mlx_xpm_file_to_image(event->mlx,
 			event->player_left.path, &event->player_left.width,

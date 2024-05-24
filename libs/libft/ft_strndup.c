@@ -6,7 +6,7 @@
 /*   By: ddias-fe <ddias-fe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 20:50:43 by ddias-fe          #+#    #+#             */
-/*   Updated: 2024/05/14 20:50:57 by ddias-fe         ###   ########.fr       */
+/*   Updated: 2024/05/24 20:25:27 by ddias-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_strndup(char *s, int len)
 	char	*str;
 	int		i;
 
+	if (len <= 0)
+		return (NULL);
 	str = (char *)malloc(sizeof(char) * (len + 1));
 	i = 0;
 	if (!str)

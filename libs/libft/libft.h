@@ -14,7 +14,7 @@
 # define LIBFT_H
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 42
+#  define BUFFER_SIZE 22
 # endif
 
 # ifndef OPENF_MAX
@@ -71,6 +71,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strndup(char *s, int len);
+char	*get_next_line(int fd);
 
 size_t	ft_strlen(char const *str);
 size_t	ft_strlcat(char *dst, char *src, size_t n);

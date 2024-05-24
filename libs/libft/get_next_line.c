@@ -6,7 +6,7 @@
 /*   By: ddias-fe <ddias-fe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 20:53:50 by ddias-fe          #+#    #+#             */
-/*   Updated: 2024/05/14 20:54:09 by ddias-fe         ###   ########.fr       */
+/*   Updated: 2024/05/24 20:25:53 by ddias-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ char	*leftovers(char *stash)
 {
 	char	*leftover;
 
-	leftover = ft_strndup(stash + ft_strclen(stash, '\n')
-			+ 1, ft_strclen(stash, '\0') - ft_strclen(stash, '\n'));
+	leftover = ft_strndup(stash + ft_strclen(stash, '\n') + 1,
+			ft_strclen(stash, '\0') - ft_strclen(stash, '\n'));
 	free (stash);
 	if (!leftover)
 		return (NULL);
@@ -57,21 +57,21 @@ char	*leftovers(char *stash)
 
 char	*get_next_line(int fd)
 {
-	static char	*stash[OPENF_MAX];
+	static char	*stash;
 	char		*new_line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	if (!stash[fd])
-		stash[fd] = NULL;
-	stash[fd] = read_from_file(fd, stash[fd]);
-	if (!stash[fd])
+	if (!stash)
+		stash = NULL;
+	stash = read_from_file(fd, stash);
+	if (!stash)
 		return (NULL);
-	new_line = ft_strndup(stash[fd], ft_strclen(stash[fd], '\n') + 1);
+	new_line = ft_strndup(stash, ft_strclen(stash, '\n'));
 	if (!new_line)
 		return (NULL);
-	stash[fd] = leftovers(stash[fd]);
-	if (!stash[fd])
-		free(stash[fd]);
+	stash = leftovers(stash);
+	if (!stash)
+		free(stash);
 	return (new_line);
 }

@@ -20,10 +20,13 @@ NAME_BNS = so_long_bonus
 
 SRC =	src/main.c \
 		src/key_utils.c \
-		src/blast/blast_active_utils.c \
-		src/blast/blast_inactive_utils.c \
 		src/movement/key_press_utils.c \
 		src/movement/movement.c \
+		src/replace_pixel.c \
+		src/init_data.c \
+		src/init_data2.c \
+		src/map_utils/map_utils.c \
+		src/map_utils/tile.c \
 			
 OBJ = $(SRC:.c=.o)
 

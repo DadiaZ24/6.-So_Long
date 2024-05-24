@@ -1,42 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   key_press_utils.c                                  :+:      :+:    :+:   */
+/*   map_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddias-fe <ddias-fe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/22 17:42:45 by ddias-fe          #+#    #+#             */
-/*   Updated: 2024/05/24 11:28:35 by ddias-fe         ###   ########.fr       */
+/*   Created: 2024/05/24 10:51:15 by ddias-fe          #+#    #+#             */
+/*   Updated: 2024/05/24 20:05:03 by ddias-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/so_long.h"
 
-int	key_press_down(t_event *event)
+void	set_map_size(t_event *event)
 {
-	event->move_down_trigger = 1;
-	event->display = 1;
-	return (0);
-}
+	char	*tmp;
+	int		fd;
 
-int	key_press_up(t_event *event)
-{
-	event->move_up_trigger = 1;
-	event->display = 2;
-	return (0);
+	fd = open(event->chosen_map, O_RDONLY);
+	tmp = get_next_line(fd);
+	event->map_columns = ft_strclen(tmp, '\0');
+	while (tmp)
+	{
+		free (tmp);
+		tmp = get_next_line(fd);
+		event->map_lines += 1;
+	}
+	close(fd);
 }
-
-int	key_press_right(t_event *event)
-{
-	event->move_right_trigger = 1;
-	event->display = 3;
-	return (0);
-}
-
-int	key_press_left(t_event *event)
-{
-	event->move_left_trigger = 1;
-	event->display = 4;
-	return (0);
-}
-
