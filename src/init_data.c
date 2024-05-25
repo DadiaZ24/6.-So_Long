@@ -6,7 +6,7 @@
 /*   By: ddias-fe <ddias-fe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 11:28:03 by ddias-fe          #+#    #+#             */
-/*   Updated: 2024/05/24 20:31:30 by ddias-fe         ###   ########.fr       */
+/*   Updated: 2024/05/25 14:16:37 by ddias-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	init_data(t_event *event)
 {
 	event->mlx = mlx_init();
-	event->window = mlx_new_window(event->mlx, event->map_lines * MAP_RES, event->map_columns * MAP_RES, "SO_LONG");
+	event->window = mlx_new_window(event->mlx, 1024, 820, "SO_LONG");
 	init_int_data(event);
 	init_t_data_data(event);
 	init_img_data(event);
