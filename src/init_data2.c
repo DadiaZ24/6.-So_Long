@@ -6,7 +6,7 @@
 /*   By: ddias-fe <ddias-fe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 11:35:55 by ddias-fe          #+#    #+#             */
-/*   Updated: 2024/05/24 15:26:54 by ddias-fe         ###   ########.fr       */
+/*   Updated: 2024/05/28 19:00:52 by ddias-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 void	init_img_data(t_event *event)
 {
-	event->x = 100;
-	event->y = 30;
 	event->bg.path = "img/bg.xpm";
 	event->player_right.path = "img/player_right.xpm";
 	event->player_up.path = "img/player_up.xpm";
@@ -54,7 +52,6 @@ void	init_pixelize_img(t_event *event)
 			&event->player_right.endian);
 	event->tile.data = mlx_get_data_addr(event->mlx, &event->tile.bpp, 
 			&event->tile.size_line, &event->tile.endian);
-	replace_black_pixels(&event->player_right, &event->bg, event->x, event->y);
 }
 
 void	init_put_img(t_event *event)
@@ -62,13 +59,12 @@ void	init_put_img(t_event *event)
 	init_get_img(event);
 	init_pixelize_img(event);
 	mlx_put_image_to_window(event->mlx, event->window, event->bg.img, 0, 0);
-	mlx_put_image_to_window(event->mlx, event->window,
-		event->player_right.img, event->x, event->y);
 }
 void	init_loop(t_event *event)
 {
 	mlx_hook(event->window, KeyPress, KeyPressMask, on_key_press, event);
 	mlx_hook(event->window, KeyRelease, KeyReleaseMask, on_key_release, event);
 	mlx_loop_hook(event->mlx, update_key_press, event);
+	check_up(event);
 	mlx_loop(event->mlx);
 }

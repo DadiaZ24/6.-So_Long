@@ -6,7 +6,7 @@
 /*   By: ddias-fe <ddias-fe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 11:28:03 by ddias-fe          #+#    #+#             */
-/*   Updated: 2024/05/25 14:16:37 by ddias-fe         ###   ########.fr       */
+/*   Updated: 2024/05/28 19:05:56 by ddias-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,13 @@
 void	init_data(t_event *event)
 {
 	event->mlx = mlx_init();
-	event->window = mlx_new_window(event->mlx, 1024, 820, "SO_LONG");
 	init_int_data(event);
 	init_t_data_data(event);
 	init_img_data(event);
+	set_map_size(event);
+	event->window = mlx_new_window(event->mlx, event->map_columns * MAP_RES, event->map_lines * MAP_RES, "SO_LONG");
 	init_put_img(event);
+	render_map(event);
 }
 
 void	init_byte_data(t_byte *byte)
@@ -39,7 +41,16 @@ void	init_t_data_data(t_event *event)
 	init_player_data(&event->player_right);
 	init_player_data(&event->player_left);
 	init_player_data(&event->bg);
-	//init_player_data(&event->tile);
+	/* event->tile.bpp = 0;
+	event->tile.data = 0;
+	event->tile.endian = 0;
+	event->tile.erase = 0;
+	event->tile.height = 0;
+	event->tile.img = 0;
+	event->tile.path = 0;
+	event->tile.size_line = 0;
+	event->tile.width = 0; */
+	init_player_data(&event->tile);
 }
 
 void	init_player_data(t_data *player)
@@ -49,13 +60,11 @@ void	init_player_data(t_data *player)
 	player->bpp = 0;
 	player->size_line = 0;
 	player->endian = 0;
-	player->erase = 0;	
+	player->erase = 0;
 }
 
 void	init_int_data(t_event *event)
 {
-	event->x = 0;
-	event->y = 0;
 	event->display = 0;
 	event->move_down_trigger = 0;
 	event->move_up_trigger = 0;
@@ -64,5 +73,7 @@ void	init_int_data(t_event *event)
 	event->is_moving = 0;
 	event->map_lines = 0;
 	event->map_columns = 0;
+	event->x = 0;
+	event->y = 0;
 	
 }

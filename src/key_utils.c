@@ -6,7 +6,7 @@
 /*   By: ddias-fe <ddias-fe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 19:08:53 by ddias-fe          #+#    #+#             */
-/*   Updated: 2024/05/24 20:11:26 by ddias-fe         ###   ########.fr       */
+/*   Updated: 2024/05/28 18:54:41 by ddias-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,6 @@ int	update_key_press(t_event *event)
 		trigger_move_right(event);
 	if (event->move_left_trigger)
 		trigger_move_left(event);
-	usleep(5000);
+	usleep(3000);
 	return (0);
 }

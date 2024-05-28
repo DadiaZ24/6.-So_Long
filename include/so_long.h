@@ -6,7 +6,7 @@
 /*   By: ddias-fe <ddias-fe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 16:02:57 by ddias-fe          #+#    #+#             */
-/*   Updated: 2024/05/24 20:28:44 by ddias-fe         ###   ########.fr       */
+/*   Updated: 2024/05/28 19:21:03 by ddias-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 //|_______________________________________________________________|
 
 # ifndef MAP_RES
-#  define MAP_RES 10
+#  define MAP_RES 64
 # endif
 
 //________________________________________________________________
@@ -62,26 +62,26 @@ typedef struct p_byte
 
 typedef struct g_event
 {
-	t_data	player_up;
-	t_data	player_down;
-	t_data	player_right;
-	t_data	player_left;
-	t_data	bg;
-	t_data	tile;
-	void	*mlx;
-	void	*window;
-	int		x;
-	int		y;
-	int		display;
-	int		move_down_trigger;
-	int		move_up_trigger;
-	int		move_right_trigger;
-	int		move_left_trigger;
-	int		is_moving;
-	int		map_lines;
-	int		map_columns;
-	char	**map;
-	char	*chosen_map;
+	t_data		player_up;
+	t_data		player_down;
+	t_data		player_right;
+	t_data		player_left;
+	t_data		bg;
+	t_data		tile;
+	void		*mlx;
+	void		*window;
+	int			x;
+	int			y;
+	int			display;
+	int			move_down_trigger;
+	int			move_up_trigger;
+	int			move_right_trigger;
+	int			move_left_trigger;
+	int			is_moving;
+	int			map_lines;
+	int			map_columns;
+	char		**map;
+	char		*chosen_map;
 }	t_event;
 
 //________________________________________________________________
@@ -121,8 +121,16 @@ void	init_loop(t_event *event);
 //|--------------MAP UTILS----------------
 
 void	set_map_size(t_event *event);
-int		put_tile(t_event *event, int x, int y);
-void	close_map_tile(t_event *event);
+int		put_tile(char *path, t_event *event, int x, int y);
+void	load_map(t_event *event);
+void	render_map(t_event *event);
+int		check_up(t_event *event);
+int		check_down(t_event *event);
+int		check_left(t_event *event);
+int		check_right(t_event *event);
+void	render_corners(t_event *event, int x, int y);
+void	render_sides(t_event *event, int x, int y);
+void	render_stuff(t_event *event, int x, int y);
 
 //|--------------OTHER UTILS----------------
 
