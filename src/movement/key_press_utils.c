@@ -6,7 +6,7 @@
 /*   By: ddias-fe <ddias-fe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 17:42:45 by ddias-fe          #+#    #+#             */
-/*   Updated: 2024/05/24 11:28:35 by ddias-fe         ###   ########.fr       */
+/*   Updated: 2024/05/28 19:42:58 by ddias-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,3 @@ int	key_press_left(t_event *event)
 	event->display = 4;
 	return (0);
 }
-

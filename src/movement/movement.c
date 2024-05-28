@@ -6,7 +6,7 @@
 /*   By: ddias-fe <ddias-fe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 17:35:07 by ddias-fe          #+#    #+#             */
-/*   Updated: 2024/05/28 18:53:15 by ddias-fe         ###   ########.fr       */
+/*   Updated: 2024/05/28 19:44:01 by ddias-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ int	trigger_move_down(t_event *event)
 		event->player_down.data = mlx_get_data_addr(event->player_down.img,
 				&event->player_down.bpp, &event->player_down.size_line,
 				&event->player_down.endian);
-		replace_black_pixels(&event->player_down, &event->bg, event->x, event->y);
+		replace_black_pixels(&event->player_down, &event->bg,
+			event->x, event->y);
 		mlx_put_image_to_window(event->mlx, event->window,
 			event->player_down.img, event->x, event->y);
 	}
@@ -65,7 +66,8 @@ int	trigger_move_right(t_event *event)
 		event->player_right.data = mlx_get_data_addr(event->player_right.img,
 				&event->player_right.bpp, &event->player_right.size_line,
 				&event->player_right.endian);
-		replace_black_pixels(&event->player_right, &event->bg, event->x, event->y);
+		replace_black_pixels(&event->player_right, &event->bg, event->x,
+			event->y);
 		mlx_put_image_to_window(event->mlx, event->window,
 			event->player_right.img, event->x, event->y);
 	}
@@ -85,7 +87,8 @@ int	trigger_move_left(t_event *event)
 		event->player_left.data = mlx_get_data_addr(event->player_left.img,
 				&event->player_left.bpp, &event->player_left.size_line,
 				&event->player_left.endian);
-		replace_black_pixels(&event->player_left, &event->bg, event->x, event->y);
+		replace_black_pixels(&event->player_left, &event->bg, event->x,
+			event->y);
 		mlx_put_image_to_window(event->mlx, event->window,
 			event->player_left.img, event->x, event->y);
 	}

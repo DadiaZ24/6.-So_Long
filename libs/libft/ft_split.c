@@ -12,104 +12,92 @@
 
 #include "libft.h"
 
-static size_t	checksplits(char const *s, char c)
+int	ft_countwords(char const *s, char c)
 {
-	size_t	i;
-	size_t	j;
-	size_t	count;
+	int	i;
+	int	count;
 
 	i = 0;
-	j = 0;
 	count = 0;
-	while (s[i] != '\0')
+	while (s[i])
 	{
-		if (s[i] == c)
-			j = 0;
-		else if (s[i] != c && j == 0)
-		{
+		while (s[i] == c)
+			i++;
+		if ((s[i] != c) && s[i])
 			count++;
-			j = 1;
-		}
-		i++;
+		while ((s[i] != c) && s[i])
+			i++;
 	}
 	return (count);
 }
 
-static int	checksize(char const *s, char c)
+int	wordlen(char const *s, char c)
 {
 	int	i;
+	int	count;
 
 	i = 0;
-	while (s[i] != c && s[i])
+	count = 0;
+	while (s[i] == c)
 		i++;
-	return (i);
+	while (s[i] && s[i] != c)
+	{
+		i++;
+		count++;
+	}
+	return (count);
 }
 
-static char	*allocstr(char const *s, char c)
+char	*makeword(char const *s, char c)
 {
-	size_t	i;
-	size_t	size;
-	char	*str;
+	char	*word;
+	int		i;
 
 	i = 0;
-	size = checksize(s, c);
-	str = (char *)malloc(sizeof(char) * (size + 1));
-	if (str == NULL)
+	word = malloc(sizeof(char) * (wordlen(s, c) + 1));
+	if (!word)
 		return (NULL);
-	while (i < size)
+	while (s[i] != c && s[i])
 	{
-		str[i] = s[i];
+		word[i] = s[i];
 		i++;
 	}
-	str[i] = '\0';
-	return (str);
+	word[i] = '\0';
+	return (word);
+}
+
+char	**free_data(char **split, int i)
+{
+	while (i--)
+		free(split[i]);
+	free(split);
+	return (NULL);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	size_t	i;
-	size_t	j;
-	size_t	size;
-	size_t	num_splits;
-	char	**split;
+	char	**newstring;
+	int		i;
+	int		j;
+	int		count_words;
 
+	if (!s)
+		return (NULL);
 	i = -1;
 	j = 0;
-	if (s == NULL)
+	count_words = ft_countwords(s, c);
+	newstring = malloc(sizeof(char *) * (count_words + 1));
+	if (!newstring)
 		return (NULL);
-	num_splits = checksplits(s, c);
-	split = (char **)malloc((num_splits + 1) * sizeof(char *));
-	if (split == NULL)
-		return (NULL);
-	while (num_splits > ++i)
+	while (++i < count_words)
 	{
 		while (s[j] == c)
 			j++;
-		size = checksize(s + j, c);
-		split[i] = allocstr(s + j, c);
-		if (split[i] == NULL)
-		{
-			while (i > 0)
-				free(split[--i]);
-			free(split);
-			return (NULL);
-		}
-		j += size;
+		newstring[i] = makeword(s + j, c);
+		if (!newstring[i])
+			return (free_data(newstring, i));
+		j += wordlen(s + j, c);
 	}
-	split[i] = NULL;
-	return (split);
+	newstring[i] = NULL;
+	return (newstring);
 }
-
-/* int	main()
-{
-	int	i;
-	char	**split;
-
-	i = 0;
-	split = ft_split(" Tripouille", ' ');
-	while (i < 10)
-	{
-		//printf("SPLIT[%d] = [%s]\n", i, split[i]);
-		i++;
-	}
-} */

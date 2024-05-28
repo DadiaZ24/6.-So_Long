@@ -6,7 +6,7 @@
 /*   By: ddias-fe <ddias-fe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 11:35:55 by ddias-fe          #+#    #+#             */
-/*   Updated: 2024/05/28 19:00:52 by ddias-fe         ###   ########.fr       */
+/*   Updated: 2024/05/28 19:41:58 by ddias-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	init_img_data(t_event *event)
 	event->player_up.path = "img/player_up.xpm";
 	event->player_down.path = "img/player_down.xpm";
 	event->player_left.path = "img/player_left.xpm";
-	event->tile.path = "img/tile.xpm";
 }
 
 void	init_get_img(t_event *event)
@@ -39,8 +38,6 @@ void	init_get_img(t_event *event)
 			&event->player_left.height);
 	event->bg.img = mlx_xpm_file_to_image(event->mlx, event->bg.path,
 			&event->bg.width, &event->bg.height);
-	event->tile.img = mlx_xpm_file_to_image(event->mlx, 
-			event->tile.path, &event->tile.width, &event->tile.height);
 }
 
 void	init_pixelize_img(t_event *event)
@@ -50,7 +47,7 @@ void	init_pixelize_img(t_event *event)
 	event->player_right.data = mlx_get_data_addr(event->player_right.img,
 			&event->player_right.bpp, &event->player_right.size_line,
 			&event->player_right.endian);
-	event->tile.data = mlx_get_data_addr(event->mlx, &event->tile.bpp, 
+	event->tile.data = mlx_get_data_addr(event->mlx, &event->tile.bpp,
 			&event->tile.size_line, &event->tile.endian);
 }
 
@@ -60,6 +57,7 @@ void	init_put_img(t_event *event)
 	init_pixelize_img(event);
 	mlx_put_image_to_window(event->mlx, event->window, event->bg.img, 0, 0);
 }
+
 void	init_loop(t_event *event)
 {
 	mlx_hook(event->window, KeyPress, KeyPressMask, on_key_press, event);

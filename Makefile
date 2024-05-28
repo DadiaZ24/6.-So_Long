@@ -29,6 +29,7 @@ SRC =	src/main.c \
 		src/map_utils/tile.c \
 		src/map_utils/colide_utils.c \
 		src/map_utils/map_render.c \
+		src/map_utils/map_parser.c \
 			
 OBJ = $(SRC:.c=.o)
 

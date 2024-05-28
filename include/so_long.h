@@ -6,7 +6,7 @@
 /*   By: ddias-fe <ddias-fe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 16:02:57 by ddias-fe          #+#    #+#             */
-/*   Updated: 2024/05/28 19:21:03 by ddias-fe         ###   ########.fr       */
+/*   Updated: 2024/05/28 21:16:28 by ddias-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,16 @@ typedef struct p_byte
 	char	b;
 }	t_byte;
 
+typedef struct g_parser
+{
+	int	x;
+	int	y;
+	int	i;
+	int	players;
+	int	colects;
+	int	exit;
+}	t_parser;
+
 typedef struct g_event
 {
 	t_data		player_up;
@@ -68,6 +78,7 @@ typedef struct g_event
 	t_data		player_left;
 	t_data		bg;
 	t_data		tile;
+	t_parser	parser;
 	void		*mlx;
 	void		*window;
 	int			x;
@@ -108,7 +119,7 @@ int		key_press_left(t_event *event);
 //|--------------INIT UTILS----------------
 
 int		init_key_press(t_event *event);
-void	init_data(t_event *event);
+int		init_data(t_event *event);
 void	init_byte_data(t_byte *byte);
 void	init_t_data_data(t_event *event);
 void	init_player_data(t_data *player);
@@ -123,7 +134,7 @@ void	init_loop(t_event *event);
 void	set_map_size(t_event *event);
 int		put_tile(char *path, t_event *event, int x, int y);
 void	load_map(t_event *event);
-void	render_map(t_event *event);
+int		render_map(t_event *event);
 int		check_up(t_event *event);
 int		check_down(t_event *event);
 int		check_left(t_event *event);
@@ -131,6 +142,10 @@ int		check_right(t_event *event);
 void	render_corners(t_event *event, int x, int y);
 void	render_sides(t_event *event, int x, int y);
 void	render_stuff(t_event *event, int x, int y);
+int		map_parser(t_event *event);
+int		parse_close_map(t_event *event);
+int		parse_stuff(t_event *event);
+int		parse_check_access(t_event *event, char etype);
 
 //|--------------OTHER UTILS----------------
 

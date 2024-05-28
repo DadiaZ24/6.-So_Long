@@ -6,7 +6,7 @@
 /*   By: ddias-fe <ddias-fe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 10:51:15 by ddias-fe          #+#    #+#             */
-/*   Updated: 2024/05/28 18:49:13 by ddias-fe         ###   ########.fr       */
+/*   Updated: 2024/05/28 19:44:17 by ddias-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	set_map_size(t_event *event)
 	close(fd);
 	load_map(event);
 }
+
 void	load_map(t_event *event)
 {
 	int	fd;
