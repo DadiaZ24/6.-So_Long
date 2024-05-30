@@ -6,7 +6,7 @@
 /*   By: ddias-fe <ddias-fe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 16:02:57 by ddias-fe          #+#    #+#             */
-/*   Updated: 2024/05/28 21:16:28 by ddias-fe         ###   ########.fr       */
+/*   Updated: 2024/05/30 17:07:18 by ddias-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,17 @@ typedef struct g_parser
 	int	exit;
 }	t_parser;
 
+typedef struct g_moves
+{
+	int	trig_left;
+	int	trig_right;
+	int	trig_up;
+	int	trig_down;
+}	t_moves;
+
 typedef struct g_event
 {
+	t_moves		movement;
 	t_data		player_up;
 	t_data		player_down;
 	t_data		player_right;
@@ -91,6 +100,7 @@ typedef struct g_event
 	int			is_moving;
 	int			map_lines;
 	int			map_columns;
+	int			moves;
 	char		**map;
 	char		*chosen_map;
 }	t_event;
@@ -146,6 +156,8 @@ int		map_parser(t_event *event);
 int		parse_close_map(t_event *event);
 int		parse_stuff(t_event *event);
 int		parse_check_access(t_event *event, char etype);
+int		temp_check_up(t_event *event);
+int		temp_check_down(t_event *event);
 
 //|--------------OTHER UTILS----------------
 

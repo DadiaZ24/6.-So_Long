@@ -30,6 +30,7 @@ SRC =	src/main.c \
 		src/map_utils/colide_utils.c \
 		src/map_utils/map_render.c \
 		src/map_utils/map_parser.c \
+		src/map_utils/temp_colide_utils.c \
 			
 OBJ = $(SRC:.c=.o)
 

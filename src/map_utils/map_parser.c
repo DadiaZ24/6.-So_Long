@@ -6,7 +6,7 @@
 /*   By: ddias-fe <ddias-fe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 20:30:03 by ddias-fe          #+#    #+#             */
-/*   Updated: 2024/05/28 21:28:57 by ddias-fe         ###   ########.fr       */
+/*   Updated: 2024/05/29 10:30:41 by ddias-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,11 @@ int	parse_close_map(t_event *event)
 
 int	parse_stuff(t_event *event)
 {
-	event->parser.y = 0;
-	while (event->parser.y < event->map_lines)
+	event->parser.y = -1;
+	while (++event->parser.y < event->map_lines)
 	{
-		event->parser.x = 0;
-		while (event->parser.x < event->map_columns)
+		event->parser.x = -1;
+		while (++event->parser.x < event->map_columns)
 		{
 			if (event->map[event->parser.y][event->parser.x] == 'P')
 			{
@@ -65,9 +65,7 @@ int	parse_stuff(t_event *event)
 				if (!parse_check_access(event, 'C'))
 					return (0);
 			}
-			event->parser.x++;
 		}
-		event->parser.y++;
 	}
 	if (event->parser.players != 1 || event->parser.colects < 1 || event->parser.exit != 1)
 		return (0);

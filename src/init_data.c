@@ -6,7 +6,7 @@
 /*   By: ddias-fe <ddias-fe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 11:28:03 by ddias-fe          #+#    #+#             */
-/*   Updated: 2024/05/28 20:59:16 by ddias-fe         ###   ########.fr       */
+/*   Updated: 2024/05/30 16:55:20 by ddias-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,4 +76,5 @@ void	init_int_data(t_event *event)
 	event->parser.players = 0;
 	event->parser.x = 0;
 	event->parser.y = 0;
+	event->moves = 0;
 }
