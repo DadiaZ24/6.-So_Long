@@ -6,7 +6,7 @@
 /*   By: ddias-fe <ddias-fe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 18:48:48 by ddias-fe          #+#    #+#             */
-/*   Updated: 2024/05/28 20:43:03 by ddias-fe         ###   ########.fr       */
+/*   Updated: 2024/06/04 17:08:45 by ddias-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,15 @@ void	render_stuff(t_event *event, int x, int y)
 	{
 		if (event->map[y][x] == '1')
 			put_tile("img/tile.xpm", event, x * MAP_RES, y * MAP_RES);
+		else if (event->map[y][x] == 'C')
+			put_colectible("img/colect.xpm", event, x * MAP_RES, y * MAP_RES);
+		else if (event->map[y][x] == 'E')
+			put_tile("img/exit.xpm", event, x * MAP_RES, y * MAP_RES);
 		else if (event->map[y][x] == 'P')
 		{
+			replace_black_pixels(&event->player, &event->bg, x * MAP_RES, y * MAP_RES);
 			mlx_put_image_to_window(event->mlx, event->window,
-				event->player_right.img, x * MAP_RES, y * MAP_RES);
+				event->player.img, x * MAP_RES, y * MAP_RES);
 			event->x = x * MAP_RES;
 			event->y = y * MAP_RES;
 		}

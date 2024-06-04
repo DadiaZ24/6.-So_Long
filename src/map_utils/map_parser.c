@@ -6,7 +6,7 @@
 /*   By: ddias-fe <ddias-fe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 20:30:03 by ddias-fe          #+#    #+#             */
-/*   Updated: 2024/05/29 10:30:41 by ddias-fe         ###   ########.fr       */
+/*   Updated: 2024/05/31 12:52:29 by ddias-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	map_parser(t_event *event)
 {
-	if (!parse_stuff(event))
+	if (!parse_stuff(event) || !parse_close_map(event))
 		return (0);
 	return (1);
 }

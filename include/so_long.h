@@ -6,7 +6,7 @@
 /*   By: ddias-fe <ddias-fe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 16:02:57 by ddias-fe          #+#    #+#             */
-/*   Updated: 2024/05/30 17:07:18 by ddias-fe         ###   ########.fr       */
+/*   Updated: 2024/06/04 16:56:16 by ddias-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ typedef struct s_data
 	int		size_line;
 	int		endian;
 	int		erase;
+	int		x;
+	int		y;
 }	t_data;
 
 typedef struct p_byte
@@ -55,9 +57,12 @@ typedef struct p_byte
 	int		bg_x;
 	int		bg_y;
 	int		bg_pi;
-	char	r;
-	char	g;
-	char	b;
+	int		colect_x;
+	int		colect_y;
+	int		colect_pi;
+	unsigned char	r;
+	unsigned char	g;
+	unsigned char	b;
 }	t_byte;
 
 typedef struct g_parser
@@ -70,24 +75,13 @@ typedef struct g_parser
 	int	exit;
 }	t_parser;
 
-typedef struct g_moves
-{
-	int	trig_left;
-	int	trig_right;
-	int	trig_up;
-	int	trig_down;
-}	t_moves;
-
 typedef struct g_event
 {
-	t_moves		movement;
-	t_data		player_up;
-	t_data		player_down;
-	t_data		player_right;
-	t_data		player_left;
+	t_data		player;
 	t_data		bg;
 	t_data		tile;
 	t_parser	parser;
+	t_data		colect;
 	void		*mlx;
 	void		*window;
 	int			x;
@@ -101,6 +95,7 @@ typedef struct g_event
 	int			map_lines;
 	int			map_columns;
 	int			moves;
+	int			sleep;
 	char		**map;
 	char		*chosen_map;
 }	t_event;
@@ -145,6 +140,10 @@ void	set_map_size(t_event *event);
 int		put_tile(char *path, t_event *event, int x, int y);
 void	load_map(t_event *event);
 int		render_map(t_event *event);
+int		check_up_no_colects(t_event *event);
+int		check_down_no_colects(t_event *event);
+int		check_left_no_colects(t_event *event);
+int		check_right_no_colects(t_event *event);
 int		check_up(t_event *event);
 int		check_down(t_event *event);
 int		check_left(t_event *event);
@@ -158,6 +157,14 @@ int		parse_stuff(t_event *event);
 int		parse_check_access(t_event *event, char etype);
 int		temp_check_up(t_event *event);
 int		temp_check_down(t_event *event);
+int		temp_check_up_no_colect(t_event *event);
+int		temp_check_down_no_colect(t_event *event);
+int		put_colectible(char *path, t_event *event, int x, int y);
+int		colide_move_up(t_event *event);
+int		colide_move_down(t_event *event);
+int		colide_move_right(t_event *event);
+int		colide_move_left(t_event *event);
+void	is_in_colectible_space(t_event *event);
 
 //|--------------OTHER UTILS----------------
 

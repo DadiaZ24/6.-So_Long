@@ -27,10 +27,13 @@ SRC =	src/main.c \
 		src/init_data2.c \
 		src/map_utils/map_utils.c \
 		src/map_utils/tile.c \
-		src/map_utils/colide_utils.c \
+		src/map_utils/colide_utils_colects.c \
+		src/map_utils/colide_utils_no_colects.c \
 		src/map_utils/map_render.c \
 		src/map_utils/map_parser.c \
 		src/map_utils/temp_colide_utils.c \
+		src/map_utils/colide.c \
+		src/map_utils/colectible_check.c \
 			
 OBJ = $(SRC:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: ddias-fe <ddias-fe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 19:08:53 by ddias-fe          #+#    #+#             */
-/*   Updated: 2024/05/28 19:38:55 by ddias-fe         ###   ########.fr       */
+/*   Updated: 2024/06/04 15:06:08 by ddias-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,7 @@ void	destroy_stuff(t_event *event)
 	int	i;
 
 	i = 0;
-	mlx_destroy_image(event->mlx, event->player_down.img);
-	mlx_destroy_image(event->mlx, event->player_up.img);
-	mlx_destroy_image(event->mlx, event->player_right.img);
-	mlx_destroy_image(event->mlx, event->player_left.img);
+	mlx_destroy_image(event->mlx, event->player.img);
 	mlx_destroy_image(event->mlx, event->tile.img);
 	mlx_destroy_image(event->mlx, event->bg.img);
 	mlx_clear_window(event->mlx, event->window);
@@ -84,14 +81,17 @@ int	on_key_release(int key, t_event *event)
 
 int	update_key_press(t_event *event)
 {
-	if (event->move_down_trigger)
-		trigger_move_down(event);
-	if (event->move_up_trigger)
-		trigger_move_up(event);
-	if (event->move_right_trigger)
-		trigger_move_right(event);
-	if (event->move_left_trigger)
-		trigger_move_left(event);
-	usleep(3000);
+	if (event->sleep % 500 == 0)
+	{
+		if (event->move_down_trigger)
+			trigger_move_down(event);
+		if (event->move_up_trigger)
+			trigger_move_up(event);
+		if (event->move_right_trigger)
+			trigger_move_right(event);
+		if (event->move_left_trigger)
+			trigger_move_left(event);	
+	}
+	event->sleep += 1;
 	return (0);
 }

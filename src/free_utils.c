@@ -6,7 +6,7 @@
 /*   By: ddias-fe <ddias-fe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 16:16:31 by ddias-fe          #+#    #+#             */
-/*   Updated: 2024/05/28 19:41:12 by ddias-fe         ###   ########.fr       */
+/*   Updated: 2024/05/31 12:44:23 by ddias-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,7 @@ void	destroy_stuff(t_event *event)
 	int	i;
 
 	i = 0;
-	mlx_destroy_image(event->mlx, event->player_down.img);
-	mlx_destroy_image(event->mlx, event->player_up.img);
-	mlx_destroy_image(event->mlx, event->player_right.img);
-	mlx_destroy_image(event->mlx, event->player_left.img);
+	mlx_destroy_image(event->mlx, event->player.img);
 	mlx_destroy_image(event->mlx, event->tile.img);
 	mlx_destroy_image(event->mlx, event->bg.img);
 	mlx_clear_window(event->mlx, event->window);
