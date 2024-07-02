@@ -6,7 +6,7 @@
 /*   By: ddias-fe <ddias-fe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 20:53:50 by ddias-fe          #+#    #+#             */
-/*   Updated: 2024/05/24 20:25:53 by ddias-fe         ###   ########.fr       */
+/*   Updated: 2024/06/28 16:18:20 by ddias-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,17 @@ char	*get_next_line(int fd)
 {
 	static char	*stash;
 	char		*new_line;
+	char		*tmp;
 
+	tmp = malloc(sizeof(char) * (BUFFER_SIZE));
+	if (!tmp)
+		return (NULL);
+	if (!stash)
+		if (read(fd, tmp, BUFFER_SIZE < 1))
+			return (free(tmp), NULL);
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
+	free(tmp);
 	if (!stash)
 		stash = NULL;
 	stash = read_from_file(fd, stash);

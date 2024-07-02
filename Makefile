@@ -19,21 +19,24 @@ NAME = so_long
 NAME_BNS = so_long_bonus
 
 SRC =	src/main.c \
-		src/key_utils.c \
+		src/others/replace_pixel.c \
+		src/others/free_utils.c \
+		src/movement/key_utils.c \
 		src/movement/key_press_utils.c \
 		src/movement/movement.c \
-		src/replace_pixel.c \
-		src/init_data.c \
-		src/init_data2.c \
-		src/map_utils/map_utils.c \
-		src/map_utils/tile.c \
-		src/map_utils/colide_utils_colects.c \
-		src/map_utils/colide_utils_no_colects.c \
-		src/map_utils/map_render.c \
-		src/map_utils/map_parser.c \
-		src/map_utils/temp_colide_utils.c \
-		src/map_utils/colide.c \
-		src/map_utils/colectible_check.c \
+		src/inits/init_data.c \
+		src/inits/init_data2.c \
+		src/map_utils/render/map_utils.c \
+		src/map_utils/render/tile.c \
+		src/map_utils/render/map_render.c \
+		src/map_utils/parser/map_parser.c \
+		src/map_utils/parser/map_parser_utils.c \
+		src/map_utils/colide/colide_utils_colects.c \
+		src/map_utils/colide/colide_utils_no_colects.c \
+		src/map_utils/colide/temp_colide_utils.c \
+		src/map_utils/colide/colide.c \
+		src/map_utils/colide/colectible_check.c \
+		src/map_utils/colide/exit_check.c \
 			
 OBJ = $(SRC:.c=.o)
 

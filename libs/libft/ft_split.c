@@ -66,7 +66,7 @@ char	*makeword(char const *s, char c)
 	return (word);
 }
 
-char	**free_data(char **split, int i)
+char	**free_data_split(char **split, int i)
 {
 	while (i--)
 		free(split[i]);
@@ -95,7 +95,7 @@ char	**ft_split(char const *s, char c)
 			j++;
 		newstring[i] = makeword(s + j, c);
 		if (!newstring[i])
-			return (free_data(newstring, i));
+			return (free_data_split(newstring, i));
 		j += wordlen(s + j, c);
 	}
 	newstring[i] = NULL;
