@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddias-fe <ddias-fe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 16:02:57 by ddias-fe          #+#    #+#             */
-/*   Updated: 2024/07/03 17:56:47 by ddias-fe         ###   ########.fr       */
+/*   Updated: 2024/07/03 20:14:57 by ddias-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,8 @@ typedef struct g_parser
 	int		path_colects;
 	int		path_exit;
 	int		exit;
+	int		enemies;
+	int		path_enemies;
 	char	**map;
 }	t_parser;
 
@@ -221,5 +223,6 @@ void	replace_black_pixels(t_data *foreground, t_data *background,
 			int offset_x, int offset_y);
 int		destroy_stuff(t_event *event);
 void	free_split(char **split);
+void	exit_sprite(t_event *event, int x, int y);
 
 #endif

@@ -12,52 +12,81 @@
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -g
-MLXFLAGS = -L ./libs/minilibx_linux -lm -lmlx -Ilmlx -lXext -lX11
+MLXFLAGS = -L ./libs/minilibx-linux -lm -lmlx -Ilmlx -lXext -lX11
 RM = rm -f
+SRC_DIR = ./src/
+BONUS_DIR = ./src_bonus/
 
 NAME = so_long
 NAME_BNS = so_long_bonus
 
-SRC =	src/main.c \
-		src/others/replace_pixel.c \
-		src/others/free_utils.c \
-		src/movement/key_utils.c \
-		src/movement/key_press_utils.c \
-		src/movement/movement.c \
-		src/inits/init_data.c \
-		src/inits/init_data2.c \
-		src/map_utils/render/map_utils.c \
-		src/map_utils/render/tile.c \
-		src/map_utils/render/map_render.c \
-		src/map_utils/parser/map_parser.c \
-		src/map_utils/parser/map_parser_utils.c \
-		src/map_utils/colide/colide_utils_colects.c \
-		src/map_utils/colide/colide_utils_no_colects.c \
-		src/map_utils/colide/temp_colide_utils.c \
-		src/map_utils/colide/colide.c \
-		src/map_utils/colide/colectible_check.c \
-		src/map_utils/colide/exit_check.c \
+SRC =	$(SRC_DIR)/main.c \
+		$(SRC_DIR)/others/replace_pixel.c \
+		$(SRC_DIR)/others/free_utils.c \
+		$(SRC_DIR)/movement/key_utils.c \
+		$(SRC_DIR)/movement/key_press_utils.c \
+		$(SRC_DIR)/movement/movement.c \
+		$(SRC_DIR)/inits/init_data.c \
+		$(SRC_DIR)/inits/init_data2.c \
+		$(SRC_DIR)/map_utils/render/map_utils.c \
+		$(SRC_DIR)/map_utils/render/tile.c \
+		$(SRC_DIR)/map_utils/render/map_render.c \
+		$(SRC_DIR)/map_utils/parser/map_parser.c \
+		$(SRC_DIR)/map_utils/parser/map_parser_utils.c \
+		$(SRC_DIR)/map_utils/colide/colide_utils_colects.c \
+		$(SRC_DIR)/map_utils/colide/colide_utils_no_colects.c \
+		$(SRC_DIR)/map_utils/colide/temp_colide_utils.c \
+		$(SRC_DIR)/map_utils/colide/colide.c \
+		$(SRC_DIR)/map_utils/colide/colectible_check.c \
+		$(SRC_DIR)/map_utils/colide/exit_check.c
+
+BONUS =	$(BONUS_DIR)/main.c \
+		$(BONUS_DIR)/others/replace_pixel.c \
+		$(BONUS_DIR)/others/free_utils.c \
+		$(BONUS_DIR)/movement/key_utils.c \
+		$(BONUS_DIR)/movement/key_press_utils.c \
+		$(BONUS_DIR)/movement/movement.c \
+		$(BONUS_DIR)/inits/init_data.c \
+		$(BONUS_DIR)/inits/init_data2.c \
+		$(BONUS_DIR)/map_utils/render/map_utils.c \
+		$(BONUS_DIR)/map_utils/render/tile.c \
+		$(BONUS_DIR)/map_utils/render/map_render.c \
+		$(BONUS_DIR)/map_utils/parser/map_parser.c \
+		$(BONUS_DIR)/map_utils/parser/map_parser_utils.c \
+		$(BONUS_DIR)/map_utils/colide/colide_utils_colects.c \
+		$(BONUS_DIR)/map_utils/colide/colide_utils_no_colects.c \
+		$(BONUS_DIR)/map_utils/colide/temp_colide_utils.c \
+		$(BONUS_DIR)/map_utils/colide/colide.c \
+		$(BONUS_DIR)/map_utils/colide/colectible_check.c \
+		$(BONUS_DIR)/map_utils/colide/exit_check.c \
+		$(BONUS_DIR)/map_utils/colide/exit_sprite.c
 			
 OBJ = $(SRC:.c=.o)
+OBJ_B = $(BONUS:.c=.o)
 
 LIBFT = libs/libft/libft.a
 
-all: deps $(NAME)
+all: download deps $(NAME)
 
 deps: 
 	$(MAKE) -C ./libs/libft
-	$(MAKE) -C ./libs/minilibx_linux
+	$(MAKE) -C ./libs/minilibx-linux
 
 $(NAME): $(OBJ) $(DEPS)
 	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(MLXFLAGS) -o $(NAME)
 
 clean: 
 	$(MAKE) clean -C ./libs/libft
-	$(MAKE) clean -C ./libs/minilibx_linux
-	@$(RM) $(OBJ)
+	$(MAKE) clean -C ./libs/minilibx-linux
+	@$(RM) $(OBJ) $(OBJ_B)
 
-fclean : clean
-	@$(RM) $(LIBFT) $(NAME)
+fclean: clean
+	@$(RM) $(LIBFT) $(NAME) $(NAME_BNS)
+
+bonus: download deps $(NAME_BNS)
+
+$(NAME_BNS): $(OBJ_B) $(DEPS)
+	$(CC) $(CFLAGS) $(OBJ_B) $(LIBFT) $(MLXFLAGS) -o $(NAME_BNS)
 
 download:
 	@wget https://cdn.intra.42.fr/document/document/21300/minilibx-linux.tgz

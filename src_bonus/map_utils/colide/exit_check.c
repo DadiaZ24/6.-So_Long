@@ -6,11 +6,11 @@
 /*   By: ddias-fe <ddias-fe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 10:54:06 by ddias-fe          #+#    #+#             */
-/*   Updated: 2024/07/03 18:40:28 by ddias-fe         ###   ########.fr       */
+/*   Updated: 2024/07/03 19:28:48 by ddias-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../include/so_long.h"
+#include "../../../include/so_long_bonus.h"
 /**
  * @brief Checks if player is in the exit space to the right without collectibles.
  * 
@@ -30,9 +30,19 @@ void	is_in_exit_space_right(t_event *event)
 	if (event->parser.colects == 0 && event->move_right_trigger)
 	{
 		if (event->map[(event->y) / MAP_RES][(event->x + 59) / MAP_RES] == 'E')
+		{
+			x = (event->x + 59) / MAP_RES;
+			y = (event->y) / MAP_RES;
+			exit_sprite(event, x * MAP_RES, y * MAP_RES);
 			destroy_stuff(event);
+		}
 		else if (event->map[(event->y + 44) / MAP_RES][(event->x + 59) / MAP_RES] == 'E')
+		{
+			x = (event->x + 59) / MAP_RES;
+			y = (event->y + 44) / MAP_RES;
+			exit_sprite(event, x * MAP_RES, y * MAP_RES);
 			destroy_stuff(event);
+		}
 	}
 }
 /**
