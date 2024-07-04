@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_parser_utils.c                                 :+:      :+:    :+:   */
+/*   map_parser_utils_bonus.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddias-fe <ddias-fe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 16:21:02 by ddias-fe          #+#    #+#             */
-/*   Updated: 2024/07/03 20:17:54 by ddias-fe         ###   ########.fr       */
+/*   Updated: 2024/07/04 17:42:25 by ddias-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../include/so_long.h"
+#include "../../../include/so_long_bonus.h"
 
 void	flood_fill(int x, int y, t_event *event)
 {
@@ -41,7 +41,7 @@ void	flood_fill(int x, int y, t_event *event)
 	flood_fill(x, y - 1, event);
 }
 
-void	free_parser(t_event *event)
+int	free_parser(t_event *event)
 {
 	int	i;
 	
@@ -49,6 +49,7 @@ void	free_parser(t_event *event)
 	while (++i < event->map_lines)
 		free(event->parser.map[i]);
 	free(event->parser.map);
+	return (0);
 }
 
 int	check_square(t_event *event)

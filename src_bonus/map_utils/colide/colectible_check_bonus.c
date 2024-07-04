@@ -6,11 +6,11 @@
 /*   By: ddias-fe <ddias-fe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 16:50:08 by ddias-fe          #+#    #+#             */
-/*   Updated: 2024/07/02 18:32:27 by ddias-fe         ###   ########.fr       */
+/*   Updated: 2024/07/04 15:09:04 by ddias-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../include/so_long.h"
+#include "../../../include/so_long_bonus.h"
 /**
  * @brief Checks if player is in collectible space right.
  * 

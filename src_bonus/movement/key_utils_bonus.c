@@ -6,11 +6,11 @@
 /*   By: ddias-fe <ddias-fe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 19:08:53 by ddias-fe          #+#    #+#             */
-/*   Updated: 2024/07/03 19:07:27 by ddias-fe         ###   ########.fr       */
+/*   Updated: 2024/07/04 15:08:26 by ddias-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/so_long.h"
+#include "../../include/so_long_bonus.h"
 
 int	init_key_press(t_event *event)
 {
@@ -72,8 +72,7 @@ int	update_key_press(t_event *event)
 		if (event->move_right_trigger)
 			trigger_move_right(event);
 		if (event->move_left_trigger)
-			trigger_move_left(event);
-		event->sleep = 0;	
+			trigger_move_left(event);	
 	}
 	event->sleep += 1;
 	return (0);

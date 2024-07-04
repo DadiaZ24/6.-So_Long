@@ -6,11 +6,11 @@
 /*   By: ddias-fe <ddias-fe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 15:50:38 by ddias-fe          #+#    #+#             */
-/*   Updated: 2024/06/25 16:14:32 by ddias-fe         ###   ########.fr       */
+/*   Updated: 2024/07/04 15:08:55 by ddias-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../include/so_long.h"
+#include "../../../include/so_long_bonus.h"
 /**
  * @brief Checks if player collides when moving up, considering collectibles.
  * 

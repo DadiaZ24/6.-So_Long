@@ -6,7 +6,7 @@
 /*   By: ddias-fe <ddias-fe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 16:02:57 by ddias-fe          #+#    #+#             */
-/*   Updated: 2024/07/03 17:56:47 by ddias-fe         ###   ########.fr       */
+/*   Updated: 2024/07/04 17:41:21 by ddias-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,19 +43,27 @@
 //|________________________[DEFINE MESSAGES]______________________|
 //|_______________________________________________________________|
 
-# define ERROR_TOP "\n======================[SO_LONG]==========================\n\n"
-# define ERROR_BOT "=========================================================\n\n"
+# define ERROR_TOP "\n======================[SO_LONG]=============\
+=============\n\n"
+# define ERROR_BOT "==============================================\
+===========\n\n"
 # define ERROR_PATH "%s%s%sERROR\n%sPlease check your path.\n\
 You need to have path to colectibles and to the exit!!!\n\n%s%s%s"
-# define ERROR_MAP_CLOSED "%s%s%sERROR\n %sPlease check if your map is closed!\n\n%s%s%s"
-# define ERROR_MAP_CHECK "%s%s%sERROR\n %sDoes your map check all the criteria?\n\
+# define ERROR_MAP_CLOSED "%s%s%sERROR\n %sPlease check if your map\
+ is closed!\n\n%s%s%s"
+# define ERROR_MAP_CHECK "%s%s%sERROR\n %sDoes your map check all \
+the criteria?\n\
  %sCheckpoints 	-> %sat least 1\n\
  %sPlayers 	-> %sexactly  1\n\
  %sExits 		-> %sexactly  1\n\n%s%s%s"
-# define ERROR_MAP_SQUARE "%s%s%sERROR\n %sYour map needs to be a rectangle!\n\n%s%s%s"
-# define ERROR_FILE_MAP_PATH "%s%s%sERROR\n %sInvalid map file path!\n\n%s%s%s"
-# define ERROR_FILE_PATH "%s%s%sERROR\n %sInvalid asset file path! Check your files\n\n%s%s%s"
-# define ERROR_SIZES "%s%s%sERROR\n %sYour lines does not have the same size!\n\n%s%s%s"
+# define ERROR_MAP_SQUARE "%s%s%sERROR\n %sYour map needs to be a \
+rectangle!\n\n%s%s%s"
+# define ERROR_FILE_MAP_PATH "%s%s%sERROR\n %sInvalid map file path!\
+\n\n%s%s%s"
+# define ERROR_FILE_PATH "%s%s%sERROR\n %sInvalid asset file path! \
+Check your files\n\n%s%s%s"
+# define ERROR_SIZES "%s%s%sERROR\n %sYour lines does not have the \
+same size!\n\n%s%s%s"
 
 //________________________________________________________________
 //|________________________[DEFINE OTHERS]________________________|
@@ -77,19 +85,18 @@ typedef struct s_data
 	int		bpp;
 	int		size_line;
 	int		endian;
-	int		erase;
 	int		x;
 	int		y;
 }	t_data;
 
 typedef struct p_byte
 {
-	int		y;
-	int		x;
-	int		pi;
-	int		bg_x;
-	int		bg_y;
-	int		bg_pi;
+	int				y;
+	int				x;
+	int				pi;
+	int				bg_x;
+	int				bg_y;
+	int				bg_pi;
 	unsigned char	r;
 	unsigned char	g;
 	unsigned char	b;
@@ -177,8 +184,8 @@ int		parse_check_path(t_event *event);
 int		check_square(t_event *event);
 int		check_file_path(t_event *event);
 int		check_sizes(t_event *event);
+int		free_parser(t_event *event);
 void	flood_fill(int x, int y, t_event *event);
-void	free_parser(t_event *event);
 void	free_after_parser(t_event *event);
 //MAP RENDER
 void	set_map_size(t_event *event);

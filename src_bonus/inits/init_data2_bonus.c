@@ -6,11 +6,11 @@
 /*   By: ddias-fe <ddias-fe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 11:35:55 by ddias-fe          #+#    #+#             */
-/*   Updated: 2024/07/01 16:21:54 by ddias-fe         ###   ########.fr       */
+/*   Updated: 2024/07/04 15:08:02 by ddias-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/so_long.h"
+#include "../../include/so_long_bonus.h"
 
 void	init_img_data(t_event *event)
 {

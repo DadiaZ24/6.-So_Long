@@ -6,11 +6,11 @@
 /*   By: ddias-fe <ddias-fe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 11:28:03 by ddias-fe          #+#    #+#             */
-/*   Updated: 2024/06/27 15:59:06 by ddias-fe         ###   ########.fr       */
+/*   Updated: 2024/07/04 17:11:58 by ddias-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/so_long.h"
+#include "../../include/so_long_bonus.h"
 
 int	init_data(t_event *event)
 {
@@ -21,7 +21,7 @@ int	init_data(t_event *event)
 	if (!map_parser(event))
 		return (free_after_parser(event), 0);
 	event->window = mlx_new_window(event->mlx, event->map_columns * MAP_RES,
-			event->map_lines * MAP_RES, "SO_LONG");
+			(event->map_lines * MAP_RES) + 30, "SO_LONG");
 	init_put_img(event);
 	if (!render_map(event))
 		destroy_stuff(event);
@@ -53,7 +53,6 @@ void	init_player_data(t_data *player)
 	player->bpp = 0;
 	player->size_line = 0;
 	player->endian = 0;
-	player->erase = 0;
 	player->img = 0;
 	player->x = 0;
 	player->y = 0;
@@ -62,7 +61,6 @@ void	init_player_data(t_data *player)
 
 void	init_int_data(t_event *event)
 {
-	event->display = 0;
 	event->move_down_trigger = 0;
 	event->move_up_trigger = 0;
 	event->move_right_trigger = 0;
@@ -82,4 +80,6 @@ void	init_int_data(t_event *event)
 	event->parser.path_exit = 0;
 	event->parser.path_colects = 0;
 	event->sleep = 0;
+	event->parser.enemies = 0;
+	event->parser.path_enemies = 0;
 }

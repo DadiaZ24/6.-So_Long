@@ -6,11 +6,11 @@
 /*   By: ddias-fe <ddias-fe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 10:44:34 by ddias-fe          #+#    #+#             */
-/*   Updated: 2024/07/01 15:27:23 by ddias-fe         ###   ########.fr       */
+/*   Updated: 2024/07/04 15:08:32 by ddias-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../include/so_long.h"
+#include "../../../include/so_long_bonus.h"
 
 int	put_tile(char *path, t_event *event, int x, int y)
 {

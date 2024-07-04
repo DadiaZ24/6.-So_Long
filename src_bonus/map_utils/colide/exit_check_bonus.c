@@ -6,7 +6,7 @@
 /*   By: ddias-fe <ddias-fe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 10:54:06 by ddias-fe          #+#    #+#             */
-/*   Updated: 2024/07/03 19:28:48 by ddias-fe         ###   ########.fr       */
+/*   Updated: 2024/07/04 16:01:05 by ddias-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,19 @@ void	is_in_exit_space_left(t_event *event)
 	if (event->parser.colects == 0 && event->move_left_trigger)
 	{
 		if (event->map[(event->y) / MAP_RES][(event->x + 5) / MAP_RES] == 'E')
+		{
+			x = (event->x + 5) / MAP_RES;
+			y = (event->y) / MAP_RES;
+			exit_sprite(event, x * MAP_RES, y * MAP_RES);
 			destroy_stuff(event);
+		}
 		else if (event->map[(event->y + 44) / MAP_RES][(event->x + 5) / MAP_RES] == 'E')
+		{
+			x = (event->x + 5) / MAP_RES;
+			y = (event->y + 44) / MAP_RES;
+			exit_sprite(event, x * MAP_RES, y * MAP_RES);
 			destroy_stuff(event);
+		}
 	}
 }
 /**
@@ -88,9 +98,19 @@ void	is_in_exit_space_up(t_event *event)
 	if (event->parser.colects == 0 && event->move_up_trigger)
 	{
 		if (event->map[(event->y + 5) / MAP_RES][(event->x) / MAP_RES] == 'E')
+		{
+			x = (event->x) / MAP_RES;
+			y = (event->y + 5) / MAP_RES;
+			exit_sprite(event, x * MAP_RES, y * MAP_RES);
 			destroy_stuff(event);
+		}
 		else if (event->map[(event->y + 5) / MAP_RES][(event->x + 44) / MAP_RES] == 'E')
+		{
+			x = (event->x + 44) / MAP_RES;
+			y = (event->y + 5) / MAP_RES;
+			exit_sprite(event, x * MAP_RES, y * MAP_RES);
 			destroy_stuff(event);
+		}
 	}
 }
 /**
@@ -112,8 +132,18 @@ void	is_in_exit_space_down(t_event *event)
 	if (event->parser.colects == 0 && event->move_down_trigger)
 	{
 		if (event->map[(event->y + 59) / MAP_RES][(event->x) / MAP_RES] == 'E')
+		{
+			x = (event->x) / MAP_RES;
+			y = (event->y + 59) / MAP_RES;
+			exit_sprite(event, x * MAP_RES, y * MAP_RES);
 			destroy_stuff(event);
+		}
 		else if (event->map[(event->y + 59) / MAP_RES][(event->x + 44) / MAP_RES] == 'E')
+		{
+			x = (event->x + 44) / MAP_RES;
+			y = (event->y + 59) / MAP_RES;
+			exit_sprite(event, x * MAP_RES, y * MAP_RES);
 			destroy_stuff(event);
+		}
 	}
 }

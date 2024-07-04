@@ -6,11 +6,11 @@
 /*   By: ddias-fe <ddias-fe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 16:16:31 by ddias-fe          #+#    #+#             */
-/*   Updated: 2024/07/01 16:20:02 by ddias-fe         ###   ########.fr       */
+/*   Updated: 2024/07/04 15:08:17 by ddias-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/so_long.h"
+#include "../../include/so_long_bonus.h"
 
 int	destroy_stuff(t_event *event)
 {

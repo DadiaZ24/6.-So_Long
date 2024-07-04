@@ -6,11 +6,11 @@
 /*   By: ddias-fe <ddias-fe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 20:46:55 by ddias-fe          #+#    #+#             */
-/*   Updated: 2024/07/01 16:38:25 by ddias-fe         ###   ########.fr       */
+/*   Updated: 2024/07/04 15:08:14 by ddias-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/so_long.h"
+#include "../../include/so_long_bonus.h"
 
 void	replace_black_pixels(t_data *icon, t_data *bg,
 	int offset_x, int offset_y)

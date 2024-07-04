@@ -6,7 +6,7 @@
 /*   By: ddias-fe <ddias-fe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 11:28:03 by ddias-fe          #+#    #+#             */
-/*   Updated: 2024/06/27 15:59:06 by ddias-fe         ###   ########.fr       */
+/*   Updated: 2024/07/04 17:08:42 by ddias-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ void	init_player_data(t_data *player)
 	player->bpp = 0;
 	player->size_line = 0;
 	player->endian = 0;
-	player->erase = 0;
 	player->img = 0;
 	player->x = 0;
 	player->y = 0;
@@ -62,7 +61,6 @@ void	init_player_data(t_data *player)
 
 void	init_int_data(t_event *event)
 {
-	event->display = 0;
 	event->move_down_trigger = 0;
 	event->move_up_trigger = 0;
 	event->move_right_trigger = 0;

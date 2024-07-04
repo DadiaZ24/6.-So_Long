@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   exit_sprite.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddias-fe <ddias-fe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/14 16:01:29 by ddias-fe          #+#    #+#             */
-/*   Updated: 2024/07/03 20:27:39 by ddias-fe         ###   ########.fr       */
+/*   Created: 2024/07/03 18:37:13 by ddias-fe          #+#    #+#             */
+/*   Updated: 2024/07/04 17:05:14 by ddias-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/so_long.h"
+#include "../../../include/so_long_bonus.h"
 
-int	main(int ac, char **av)
+void	exit_sprite(t_event *event, int x, int y)
 {
-	t_event	event;
+	int i;
+	char	path[24];
 
-	if (ac != 2)
-		return (0);
-	event.chosen_map = av[1];
-	if (!init_data(&event))
-		return (0);
-	init_loop(&event);
-	return (0);
+	i = 0;
+	while (i < 7)
+	{
+		snprintf(path, sizeof(path), "img/exit_sprite/%d.xpm", i + 1);
+		put_tile(path, event, x, y);
+		usleep(100000);
+		i++;
+	}
 }

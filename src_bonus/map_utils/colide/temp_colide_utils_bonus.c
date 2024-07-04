@@ -6,11 +6,11 @@
 /*   By: ddias-fe <ddias-fe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 17:02:32 by ddias-fe          #+#    #+#             */
-/*   Updated: 2024/06/25 16:15:02 by ddias-fe         ###   ########.fr       */
+/*   Updated: 2024/07/04 15:08:46 by ddias-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../include/so_long.h"
+#include "../../../include/so_long_bonus.h"
 
 int	temp_check_up_no_colect(t_event *event)
 {

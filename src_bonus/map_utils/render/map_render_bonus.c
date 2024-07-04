@@ -6,11 +6,11 @@
 /*   By: ddias-fe <ddias-fe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 18:48:48 by ddias-fe          #+#    #+#             */
-/*   Updated: 2024/07/03 20:24:45 by ddias-fe         ###   ########.fr       */
+/*   Updated: 2024/07/04 16:08:34 by ddias-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../include/so_long.h"
+#include "../../../include/so_long_bonus.h"
 
 int	render_map(t_event *event)
 {
