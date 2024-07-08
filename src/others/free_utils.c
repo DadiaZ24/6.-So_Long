@@ -6,7 +6,7 @@
 /*   By: ddias-fe <ddias-fe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 16:16:31 by ddias-fe          #+#    #+#             */
-/*   Updated: 2024/07/01 16:20:02 by ddias-fe         ###   ########.fr       */
+/*   Updated: 2024/07/08 15:30:47 by ddias-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int	destroy_stuff(t_event *event)
 	exit(0);
 	return (0);
 }
+
 void	free_after_parser(t_event *event)
 {
 	int	i;

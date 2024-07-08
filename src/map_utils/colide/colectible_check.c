@@ -6,7 +6,7 @@
 /*   By: ddias-fe <ddias-fe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 16:50:08 by ddias-fe          #+#    #+#             */
-/*   Updated: 2024/07/02 18:32:27 by ddias-fe         ###   ########.fr       */
+/*   Updated: 2024/07/08 15:17:43 by ddias-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,22 +28,19 @@ void	is_in_colectible_space_right(t_event *event)
 	y = 0;
 	if (event->move_right_trigger)
 	{
-		if (event->map[(event->y + 2) / MAP_RES][(event->x + 40) / MAP_RES] == 'C')
+		if (event->map[(event->y + 2) / RES]
+			[(event->x + 40) / RES] == 'C')
 		{
-			x = (event->x + 40) / MAP_RES;
-			y = (event->y + 2) / MAP_RES;
-			event->parser.colects -= 1;
-			event->map[y][x] = '0';
-			put_tile("img/colected.xpm", event, x * MAP_RES, y * MAP_RES);
+			x = (event->x + 40) / RES;
+			y = (event->y + 2) / RES;
+			update_colectible_status(event, x, y);
 		}
-		else if (event->map[(event->y + 44) / MAP_RES]
-			[(event->x + 40) / MAP_RES] == 'C')
+		else if (event->map[(event->y + 44) / RES]
+			[(event->x + 40) / RES] == 'C')
 		{
-			x = (event->x + 40) / MAP_RES;
-			y = (event->y + 44) / MAP_RES;
-			event->parser.colects -= 1;
-			event->map[y][x] = '0';
-			put_tile("img/colected.xpm", event, x * MAP_RES, y * MAP_RES);
+			x = (event->x + 40) / RES;
+			y = (event->y + 44) / RES;
+			update_colectible_status(event, x, y);
 		}
 	}
 }
@@ -65,22 +62,19 @@ void	is_in_colectible_space_left(t_event *event)
 	y = 0;
 	if (event->move_left_trigger)
 	{
-		if (event->map[(event->y + 2) / MAP_RES][(event->x - 40) / MAP_RES] == 'C')
+		if (event->map[(event->y + 2) / RES]
+			[(event->x - 40) / RES] == 'C')
 		{
-			x = (event->x - 40) / MAP_RES;
-			y = (event->y + 2) / MAP_RES;
-			event->parser.colects -= 1;
-			event->map[y][x] = '0';
-			put_tile("img/colected.xpm", event, x * MAP_RES, y * MAP_RES);
+			x = (event->x - 40) / RES;
+			y = (event->y + 2) / RES;
+			update_colectible_status(event, x, y);
 		}
-		else if (event->map[(event->y + 44) / MAP_RES]
-			[(event->x - 40) / MAP_RES] == 'C')
+		else if (event->map[(event->y + 44) / RES]
+			[(event->x - 40) / RES] == 'C')
 		{
-			x = (event->x - 40) / MAP_RES;
-			y = (event->y + 44) / MAP_RES;
-			event->parser.colects -= 1;
-			event->map[y][x] = '0';
-			put_tile("img/colected.xpm", event, x * MAP_RES, y * MAP_RES);
+			x = (event->x - 40) / RES;
+			y = (event->y + 44) / RES;
+			update_colectible_status(event, x, y);
 		}
 	}
 }
@@ -102,21 +96,19 @@ void	is_in_colectible_space_up(t_event *event)
 	y = 0;
 	if (event->move_up_trigger)
 	{
-		if (event->map[(event->y - 40) / MAP_RES][(event->x + 2) / MAP_RES] == 'C')
+		if (event->map[(event->y - 40) / RES]
+			[(event->x + 2) / RES] == 'C')
 		{
-			x = (event->x + 2) / MAP_RES;
-			y = (event->y - 40) / MAP_RES;
-			event->parser.colects -= 1;
-			event->map[y][x] = '0';
-			put_tile("img/colected.xpm", event, x * MAP_RES, y * MAP_RES);
+			x = (event->x + 2) / RES;
+			y = (event->y - 40) / RES;
+			update_colectible_status(event, x, y);
 		}
-		else if (event->map[(event->y - 40) / MAP_RES][(event->x + 44) / MAP_RES] == 'C')
+		else if (event->map[(event->y - 40) / RES]
+			[(event->x + 44) / RES] == 'C')
 		{
-			x = (event->x + 44) / MAP_RES;
-			y = (event->y - 40) / MAP_RES;
-			event->parser.colects -= 1;
-			event->map[y][x] = '0';
-			put_tile("img/colected.xpm", event, x * MAP_RES, y * MAP_RES);
+			x = (event->x + 44) / RES;
+			y = (event->y - 40) / RES;
+			update_colectible_status(event, x, y);
 		}
 	}
 }
@@ -138,21 +130,19 @@ void	is_in_colectible_space_down(t_event *event)
 	y = 0;
 	if (event->move_down_trigger)
 	{
-		if (event->map[(event->y + 40) / MAP_RES][(event->x + 2) / MAP_RES] == 'C')
+		if (event->map[(event->y + 40) / RES]
+			[(event->x + 2) / RES] == 'C')
 		{
-			x = (event->x + 2) / MAP_RES;
-			y = (event->y + 40) / MAP_RES;
-			event->parser.colects -= 1;
-			event->map[y][x] = '0';
-			put_tile("img/colected.xpm", event, x * MAP_RES, y * MAP_RES);
+			x = (event->x + 2) / RES;
+			y = (event->y + 40) / RES;
+			update_colectible_status(event, x, y);
 		}
-		else if (event->map[(event->y + 40) / MAP_RES][(event->x + 44) / MAP_RES] == 'C')
+		else if (event->map[(event->y + 40) / RES]
+			[(event->x + 44) / RES] == 'C')
 		{
-			x = (event->x + 44) / MAP_RES;
-			y = (event->y + 40) / MAP_RES;
-			event->parser.colects -= 1;
-			event->map[y][x] = '0';
-			put_tile("img/colected.xpm", event, x * MAP_RES, y * MAP_RES);
+			x = (event->x + 44) / RES;
+			y = (event->y + 40) / RES;
+			update_colectible_status(event, x, y);
 		}
 	}
 }

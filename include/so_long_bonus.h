@@ -6,7 +6,7 @@
 /*   By: ddias-fe <ddias-fe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 17:25:23 by ddias-fe          #+#    #+#             */
-/*   Updated: 2024/07/04 17:41:38 by ddias-fe         ###   ########.fr       */
+/*   Updated: 2024/07/08 16:17:56 by ddias-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@
 //|____________________[DINAMIC MAP RESOLUTION]___________________|
 //|_______________________________________________________________|
 
-# ifndef MAP_RES
-#  define MAP_RES 64
+# ifndef RES
+#  define RES 64
 # endif
 
 //________________________________________________________________
@@ -66,7 +66,8 @@ the criteria?\n\
 Check your files\n\n%s%s%s"
 # define ERROR_SIZES "%s%s%sERROR\n %sYour lines does not have the \
 same size!\n\n%s%s%s"
-
+# define GAME_OVER "%s%s%s\t\t\tGAME OVER\n%s Because of your low spaceship\
+ control skills, the dark side \n of the force won. Shame on you!\n\n%s%s%s"
 //________________________________________________________________
 //|________________________[DEFINE OTHERS]________________________|
 //|_______________________________________________________________|
@@ -205,10 +206,10 @@ int		check_up_no_colects(t_event *event);
 int		check_down_no_colects(t_event *event);
 int		check_left_no_colects(t_event *event);
 int		check_right_no_colects(t_event *event);
-int		check_up(t_event *event);
-int		check_down(t_event *event);
-int		check_left(t_event *event);
-int		check_right(t_event *event);
+int		check_up(t_event *event, int x, int y);
+int		check_down(t_event *event, int x, int y);
+int		check_left(t_event *event, int x, int y);
+int		check_right(t_event *event, int x, int y);
 int		temp_check_up(t_event *event);
 int		temp_check_down(t_event *event);
 int		temp_check_up_no_colect(t_event *event);
@@ -233,8 +234,10 @@ void	replace_black_pixels(t_data *foreground, t_data *background,
 int		destroy_stuff(t_event *event);
 void	free_split(char **split);
 void	exit_sprite(t_event *event, int x, int y);
-void	clear_string(t_event *event, int x, int y);
+void	put_string_window(t_event *event, int x, int y);
 int		check_enemy(t_event *event);
 int		lose_game(t_event *event);
+int		check_enemy_no_colectible(t_event *event);
+int		check_enemy_colectible(t_event *event);
 
 #endif

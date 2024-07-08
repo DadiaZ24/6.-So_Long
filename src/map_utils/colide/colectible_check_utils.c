@@ -1,28 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exit_sprite_bonus.c                                :+:      :+:    :+:   */
+/*   colectible_check_utils.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddias-fe <ddias-fe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/03 18:37:13 by ddias-fe          #+#    #+#             */
-/*   Updated: 2024/07/08 16:51:39 by ddias-fe         ###   ########.fr       */
+/*   Created: 2024/07/05 15:28:22 by ddias-fe          #+#    #+#             */
+/*   Updated: 2024/07/08 15:47:59 by ddias-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../include/so_long_bonus.h"
+#include "../../../include/so_long.h"
 
-void	exit_sprite(t_event *event, int x, int y)
+void	update_colectible_status(t_event *event, int x, int y)
 {
-	int		i;
-	char	path[40];
-
-	i = 0;
-	while (i < 7)
-	{
-		snprintf(path, sizeof(path), "textures/exit_sprite/%d.xpm", i + 1);
-		put_tile(path, event, x, y);
-		usleep(100000);
-		i++;
-	}
+	event->parser.colects -= 1;
+	event->map[y][x] = '0';
+	put_tile("textures/colected.xpm", event, x * RES, y * RES);
 }

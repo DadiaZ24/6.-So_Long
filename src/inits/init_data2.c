@@ -6,7 +6,7 @@
 /*   By: ddias-fe <ddias-fe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 11:35:55 by ddias-fe          #+#    #+#             */
-/*   Updated: 2024/07/01 16:21:54 by ddias-fe         ###   ########.fr       */
+/*   Updated: 2024/07/08 15:47:59 by ddias-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	init_img_data(t_event *event)
 {
-	event->bg.path = "img/bg.xpm";
-	event->player.path = "img/player_right.xpm";
+	event->bg.path = "textures/bg.xpm";
+	event->player.path = "textures/player_right.xpm";
 }
 
 int	init_get_img(t_event *event)
@@ -25,12 +25,14 @@ int	init_get_img(t_event *event)
 			event->player.path, &event->player.width,
 			&event->player.height);
 	if (!event->player.img)
-		return(ft_printf(ERROR_FILE_PATH, BLUE, ERROR_TOP, RED, DEFAULT_COLOR,
-					BLUE, ERROR_BOT, DEFAULT_COLOR), 0);
+		return (ft_printf(ERROR_FILE_PATH, BLUE, ERROR_TOP,
+				RED, DEFAULT_COLOR,
+				BLUE, ERROR_BOT, DEFAULT_COLOR), 0);
 	event->bg.img = mlx_xpm_file_to_image(event->mlx, event->bg.path,
 			&event->bg.width, &event->bg.height);
 	if (!event->bg.img)
-		return(ft_printf(ERROR_FILE_PATH, BLUE, ERROR_TOP, RED, DEFAULT_COLOR,
+		return (ft_printf(ERROR_FILE_PATH, BLUE, ERROR_TOP,
+				RED, DEFAULT_COLOR,
 				BLUE, ERROR_BOT, DEFAULT_COLOR), 0);
 	return (1);
 }

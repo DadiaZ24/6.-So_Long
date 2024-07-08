@@ -6,7 +6,7 @@
 /*   By: ddias-fe <ddias-fe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 11:28:03 by ddias-fe          #+#    #+#             */
-/*   Updated: 2024/07/04 17:08:42 by ddias-fe         ###   ########.fr       */
+/*   Updated: 2024/07/08 15:17:43 by ddias-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ int	init_data(t_event *event)
 	set_map_size(event);
 	if (!map_parser(event))
 		return (free_after_parser(event), 0);
-	event->window = mlx_new_window(event->mlx, event->map_columns * MAP_RES,
-			event->map_lines * MAP_RES, "SO_LONG");
+	event->window = mlx_new_window(event->mlx, event->map_columns * RES,
+			event->map_lines * RES, "SO_LONG");
 	init_put_img(event);
 	if (!render_map(event))
 		destroy_stuff(event);

@@ -6,7 +6,7 @@
 /*   By: ddias-fe <ddias-fe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 16:21:02 by ddias-fe          #+#    #+#             */
-/*   Updated: 2024/07/04 17:40:35 by ddias-fe         ###   ########.fr       */
+/*   Updated: 2024/07/05 15:26:57 by ddias-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	flood_fill(int x, int y, t_event *event)
 {
 	if (x < 0 || x >= event->map_columns
-			|| y < 0 || y >= event->map_lines)
+		|| y < 0 || y >= event->map_lines)
 		return ;
 	if (event->parser.map[y][x] == 'F'
 			|| event->parser.map[y][x] == '1')
@@ -41,10 +41,10 @@ void	flood_fill(int x, int y, t_event *event)
 	flood_fill(x, y - 1, event);
 }
 
-int		free_parser(t_event *event)
+int	free_parser(t_event *event)
 {
 	int	i;
-	
+
 	i = -1;
 	while (++i < event->map_lines)
 		free(event->parser.map[i]);
@@ -63,7 +63,7 @@ int	check_file_path(t_event *event)
 {
 	int		i;
 	char	**split;
-	
+
 	i = 0;
 	split = ft_split(event->chosen_map, '/');
 	while (split[i])
@@ -71,7 +71,8 @@ int	check_file_path(t_event *event)
 	i -= 1;
 	if (ft_strncmp(ft_strchr(event->chosen_map, '.'), FILE_EXTENSION, 4))
 		return (free_split(split), 0);
-	if (!ft_strncmp(ft_strchr(event->chosen_map, '.'), split[i], ft_strlen(event->chosen_map)))
+	if (!ft_strncmp(ft_strchr(event->chosen_map, '.'),
+			split[i], ft_strlen(event->chosen_map)))
 		return (free_split(split), 0);
 	return (free_split(split), 1);
 }

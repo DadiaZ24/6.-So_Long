@@ -24,6 +24,7 @@ SRC =	$(SRC_DIR)/main.c \
 		$(SRC_DIR)/inits/init_data.c \
 		$(SRC_DIR)/inits/init_data2.c \
 		$(SRC_DIR)/map_utils/colide/colectible_check.c \
+		$(SRC_DIR)/map_utils/colide/colectible_check_utils.c \
 		$(SRC_DIR)/map_utils/colide/colide_utils_colects.c \
 		$(SRC_DIR)/map_utils/colide/colide_utils_no_colects.c \
 		$(SRC_DIR)/map_utils/colide/colide.c \
@@ -56,7 +57,7 @@ BONUS =	$(BONUS_DIR)/main_bonus.c \
 		$(BONUS_DIR)/map_utils/render/tile_bonus.c \
 		$(BONUS_DIR)/map_utils/parser/map_parser_utils_bonus.c \
 		$(BONUS_DIR)/map_utils/parser/map_parser_bonus.c \
-		$(BONUS_DIR)/movement/clear_string_bonus.c \
+		$(BONUS_DIR)/movement/put_string_window_bonus.c \
 		$(BONUS_DIR)/movement/key_press_utils_bonus.c \
 		$(BONUS_DIR)/movement/key_utils_bonus.c \
 		$(BONUS_DIR)/movement/movement_bonus.c \

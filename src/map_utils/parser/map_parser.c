@@ -6,7 +6,7 @@
 /*   By: ddias-fe <ddias-fe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 20:30:03 by ddias-fe          #+#    #+#             */
-/*   Updated: 2024/07/04 17:40:59 by ddias-fe         ###   ########.fr       */
+/*   Updated: 2024/07/08 17:02:01 by ddias-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ int	parse_check_access(t_event *event, char etype)
 		event->parser.path_colects += 1;
 	}
 	else
-		return (printf("//PARSE_CHECK_ACCESS ERROR\\: Type not found"), 0);
+		return (0);
 	return (1);
 }
 
@@ -112,7 +112,8 @@ int	parse_check_path(t_event *event)
 	event->parser.map = (char **)malloc(sizeof(char *)
 			* (event->map_lines + 1));
 	while (++event->parser.y < event->map_lines)
-		event->parser.map[event->parser.y] = ft_strdup(event->map[event->parser.y]);
+		event->parser.map[event->parser.y] = ft_strdup(event->map
+			[event->parser.y]);
 	event->parser.y = event->y;
 	event->parser.x = event->x;
 	flood_fill(event->parser.x, event->parser.y, event);
@@ -122,7 +123,8 @@ int	parse_check_path(t_event *event)
 		event->parser.x = -1;
 		while (++event->parser.x < event->map_columns)
 			if (event->parser.map[event->parser.y][event->parser.x] != 'F'
-					&& event->parser.map[event->parser.y][event->parser.x] != '1')
+					&& event->parser.map[event->parser.y]
+						[event->parser.x] != '1')
 				return (free_parser(event));
 	}
 	free_parser(event);

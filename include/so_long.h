@@ -6,7 +6,7 @@
 /*   By: ddias-fe <ddias-fe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 16:02:57 by ddias-fe          #+#    #+#             */
-/*   Updated: 2024/07/04 17:41:21 by ddias-fe         ###   ########.fr       */
+/*   Updated: 2024/07/08 15:17:43 by ddias-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@
 //|____________________[DINAMIC MAP RESOLUTION]___________________|
 //|_______________________________________________________________|
 
-# ifndef MAP_RES
-#  define MAP_RES 64
+# ifndef RES
+#  define RES 64
 # endif
 
 //________________________________________________________________
@@ -201,10 +201,10 @@ int		check_up_no_colects(t_event *event);
 int		check_down_no_colects(t_event *event);
 int		check_left_no_colects(t_event *event);
 int		check_right_no_colects(t_event *event);
-int		check_up(t_event *event);
-int		check_down(t_event *event);
-int		check_left(t_event *event);
-int		check_right(t_event *event);
+int		check_up(t_event *event, int x, int y);
+int		check_down(t_event *event, int x, int y);
+int		check_left(t_event *event, int x, int y);
+int		check_right(t_event *event, int x, int y);
 int		temp_check_up(t_event *event);
 int		temp_check_down(t_event *event);
 int		temp_check_up_no_colect(t_event *event);
@@ -221,6 +221,7 @@ void	is_in_exit_space_down(t_event *event);
 void	is_in_exit_space_up(t_event *event);
 void	is_in_exit_space_left(t_event *event);
 void	is_in_exit_space_right(t_event *event);
+void	update_colectible_status(t_event *event, int x, int y);
 
 //|--------------OTHER UTILS----------------
 

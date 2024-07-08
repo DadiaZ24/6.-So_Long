@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   movement.c                                         :+:      :+:    :+:   */
+/*   movement_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddias-fe <ddias-fe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 17:35:07 by ddias-fe          #+#    #+#             */
-/*   Updated: 2024/07/04 17:07:08 by ddias-fe         ###   ########.fr       */
+/*   Updated: 2024/07/08 16:18:41 by ddias-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	trigger_move_down(t_event *event)
 	{
 		event->y += 1;
 		mlx_destroy_image(event->mlx, event->player.img);
-		event->player.path = "img/player_down.xpm";
+		event->player.path = "textures/player_down.xpm";
 		event->player.img = mlx_xpm_file_to_image(event->mlx,
 				event->player.path, &event->player.width,
 				&event->player.height);
@@ -33,9 +33,7 @@ int	trigger_move_down(t_event *event)
 			event->player.img, event->x, event->y);
 		event->moves += 1;
 		ft_printf("Movements == [%d]\n", event->moves);
-		snprintf(event->moves_string, sizeof(event->moves_string), "Movements == [%d]", event->moves);
-		clear_string(event, MAP_RES, (event->map_lines * MAP_RES) + 10);
-		mlx_string_put(event->mlx, event->window, MAP_RES, (event->map_lines * MAP_RES) + 20, GREEN, event->moves_string);
+		put_string_window(event, RES, (event->map_lines * RES) + 10);
 	}
 	return (check_enemy(event));
 }
@@ -48,7 +46,7 @@ int	trigger_move_up(t_event *event)
 	{
 		event->y -= 1;
 		mlx_destroy_image(event->mlx, event->player.img);
-		event->player.path = "img/player_up.xpm";
+		event->player.path = "textures/player_up.xpm";
 		event->player.img = mlx_xpm_file_to_image(event->mlx,
 				event->player.path, &event->player.width,
 				&event->player.height);
@@ -61,9 +59,7 @@ int	trigger_move_up(t_event *event)
 			event->player.img, event->x, event->y);
 		event->moves += 1;
 		ft_printf("Movements == [%d]\n", event->moves);
-		snprintf(event->moves_string, sizeof(event->moves_string), "Movements == [%d]", event->moves);
-		clear_string(event, MAP_RES, (event->map_lines * MAP_RES) + 10);
-		mlx_string_put(event->mlx, event->window, MAP_RES, (event->map_lines * MAP_RES) + 20, GREEN, event->moves_string);
+		put_string_window(event, RES, (event->map_lines * RES) + 10);
 	}
 	return (check_enemy(event));
 }
@@ -76,7 +72,7 @@ int	trigger_move_right(t_event *event)
 	{
 		event->x += 1;
 		mlx_destroy_image(event->mlx, event->player.img);
-		event->player.path = "img/player_right.xpm";
+		event->player.path = "textures/player_right.xpm";
 		event->player.img = mlx_xpm_file_to_image(event->mlx,
 				event->player.path, &event->player.width,
 				&event->player.height);
@@ -89,9 +85,7 @@ int	trigger_move_right(t_event *event)
 			event->player.img, event->x, event->y);
 		event->moves += 1;
 		ft_printf("Movements == [%d]\n", event->moves);
-		snprintf(event->moves_string, sizeof(event->moves_string), "Movements == [%d]", event->moves);
-		clear_string(event, MAP_RES, (event->map_lines * MAP_RES) + 10);
-		mlx_string_put(event->mlx, event->window, MAP_RES, (event->map_lines * MAP_RES) + 20, GREEN, event->moves_string);
+		put_string_window(event, RES, (event->map_lines * RES) + 10);
 	}
 	return (check_enemy(event));
 }
@@ -104,7 +98,7 @@ int	trigger_move_left(t_event *event)
 	{
 		event->x -= 1;
 		mlx_destroy_image(event->mlx, event->player.img);
-		event->player.path = "img/player_left.xpm";
+		event->player.path = "textures/player_left.xpm";
 		event->player.img = mlx_xpm_file_to_image(event->mlx,
 				event->player.path, &event->player.width,
 				&event->player.height);
@@ -117,9 +111,7 @@ int	trigger_move_left(t_event *event)
 			event->player.img, event->x, event->y);
 		event->moves += 1;
 		ft_printf("Movements == [%d]\n", event->moves);
-		snprintf(event->moves_string, sizeof(event->moves_string), "Movements == [%d]", event->moves);
-		clear_string(event, MAP_RES, (event->map_lines * MAP_RES) + 10);
-		mlx_string_put(event->mlx, event->window, MAP_RES, (event->map_lines * MAP_RES) + 20, GREEN, event->moves_string);
+		put_string_window(event, RES, (event->map_lines * RES) + 10);
 	}
 	return (check_enemy(event));
 }
