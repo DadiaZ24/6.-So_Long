@@ -31,8 +31,10 @@ To improve the fluidity of the game, the character moves smoothly across the scr
 * Enhanced Player Control: Smooth movement allows for more precise positioning and creates a more polished gameplay experience.
 
 These enhancements contribute to a more dynamic and visually engaging game, making the overall player experience smoother and more immersive.
+## 📁 Project Structure
+<details>
+    <summary>SHOW/HIDE</summary>
 
-📁 Project Structure
 
     .
     │   Makefile                             # Compiles the project
@@ -102,7 +104,7 @@ These enhancements contribute to a more dynamic and visually engaging game, maki
     │
     └───textures                    # Folder for game textures (sprites)
         └───exit_sprite             # Folder for exit sprite frames
-
+</details>
 
 ## 🚀 Getting Started
 ### Prerequisites
